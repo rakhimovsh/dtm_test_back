@@ -6,7 +6,7 @@ import mixArray from '../../utils/mixArray.js';
 const GET = async (req, res, next) => {
   try {
     let firstSubjectTests = await model.GET_FIRST_SUBJECT(req.userId);
-    let secondSubjectTests = await model.GET_FIRST_SUBJECT(req.userId);
+    let secondSubjectTests = await model.GET_SECOND_SUBJECT(req.userId);
     if (firstSubjectTests && secondSubjectTests) {
       res.status(200).send({
         status: 200,

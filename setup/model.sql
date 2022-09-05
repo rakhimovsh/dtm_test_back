@@ -68,15 +68,15 @@ CREATE TABLE faculties (
 );
 
 
-DROP TABLE IF EXISTS passed_test CASCADE;
-CREATE TABLE passed_test (
-    pt_id serial PRIMARY KEY,
-    user_id int references users (user_id),
-    first_subject_id int references subjects (subject_id),
-    second_subject_id int references subjects (subject_id),
-    first_subject_true_answers int not null,
-    second_subject_true_answers int not null
-);
+-- DROP TABLE IF EXISTS passed_test CASCADE;
+-- CREATE TABLE passed_test (
+--     pt_id serial PRIMARY KEY,
+--     user_id int references users (user_id),
+--     first_subject_id int references subjects (subject_id),
+--     second_subject_id int references subjects (subject_id),
+--     first_subject_true_answers int not null,
+--     second_subject_true_answers int not null
+-- );
 
 drop table if exists user_info cascade;
 create table user_info (
@@ -88,6 +88,18 @@ create table user_info (
     created_at timestamp default current_timestamp
 );
 
+drop table if exists results cascade;
+create table results (
+    result_id serial primary key,
+    user_id int references users (user_id),
+    ui_id int references user_info (ui_id),
+    first_subject_true_answers int not null,
+    second_subject_true_answers int not null,
+    first_subject_id int references subjects (subject_id),
+    second_subject_id int references subjects (subject_id),
+    result_score int not null,
+    created_at timestamp default current_timestamp
+);
 
 
 

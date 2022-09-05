@@ -11,7 +11,7 @@ INSERT INTO tests (title, description, subject_id)
 
 --#31
 INSERT INTO answers (answer, test_id)
-    VALUES ('shall have done',21), ('shall be doing', 21), ('have done', 321);
+    VALUES ('shall have done',21), ('shall be doing', 21), ('have done', 21);
 
 INSERT INTO answers (answer, type, test_id)
     VALUES ('shall do', TRUE, 21);
